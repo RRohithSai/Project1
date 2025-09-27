@@ -1,10 +1,10 @@
 const Todo = require("../models/todoModel");
 
-// GET all todos
+// GET al
 const getTodos = async (req, res) => {
   try {
-    const todos = await Todo.find();
-    res.json(todos);
+    const to = await Todo.find();
+    res.json(to);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -16,6 +16,7 @@ const getTodoById = async (req, res) => {
     const todo = await Todo.findById(req.params.id);
     if (!todo) return res.status(404).json({ message: "Todo not found" });
     res.json(todo);
+    console.log(todo);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
